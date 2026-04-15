@@ -7,6 +7,8 @@ LABELS = {0: "setosa", 1: "versicolor", 2: "virginica"}
 class ModelService:
     def __init__(self):
         model_path = Path("models/model.pkl")
+
+        model_path = Path(__file__).parent.parent / "models" / "model.pkl"
         if not model_path.exists():
             raise FileNotFoundError(f"Modèle introuvable : {model_path}")
         self.model = joblib.load(model_path)
